@@ -6,7 +6,8 @@ This image is based on [official Ubuntu image](https://hub.docker.com/_/ubuntu/)
 
 # Supported tags and respective `Dockerfile` links
 
-* [`12.04.5`, `12.04`, `precise`, `latest` *Dockerfile*](https://github.com/nishidayuya/docker-vagrant-ubuntu/blob/master/Dockerfile)
+* [`14.04.4`, `14.04`, `trusty`, `latest` *Dockerfile*](https://github.com/nishidayuya/docker-vagrant-ubuntu/blob/master/Dockerfile)
+* [`12.04.5`, `12.04`, `precise` *Dockerfile*](https://github.com/nishidayuya/docker-vagrant-ubuntu/blob/12.04-precise/Dockerfile)
 
 Issues and pull-requests are available on [GitHub repository](https://github.com/nishidayuya/docker-vagrant-ubuntu/).
 
@@ -21,7 +22,7 @@ Write `Vagrantfile` as following:
 ENV["VAGRANT_DEFAULT_PROVIDER"] ||= "docker"
 Vagrant.configure(2) do |config|
   config.vm.provider(:docker) do |d|
-    d.image = "nishidayuya/docker-vagrant-ubuntu:precise"
+    d.image = "nishidayuya/docker-vagrant-ubuntu:trusty"
     d.has_ssh = true
   end
 end
@@ -33,12 +34,12 @@ Enjoy `vagrant up`, `vagrant ssh` and so on!
 $ vagrant up
 Bringing machine 'default' up with 'docker' provider...
 ==> default: Creating the container...
-    default:   Name: try_default_1466597433
-    default:  Image: nishidayuya/docker-vagrant-ubuntu:precise
+    default:   Name: try_default_1466598476
+    default:  Image: nishidayuya/docker-vagrant-ubuntu:trusty
     default: Volume: /home/yuya/try:/vagrant
     default:   Port: 127.0.0.1:2222:22
     default:
-    default: Container created: e1c3e52c432c3645
+    default: Container created: f6f06a87c9231a54
 ==> default: Starting container...
 ==> default: Waiting for machine to boot. This may take a few minutes...
     default: SSH address: 172.17.0.3:22
@@ -53,9 +54,9 @@ Bringing machine 'default' up with 'docker' provider...
     default: Key inserted! Disconnecting and reconnecting using new SSH key...
 ==> default: Machine booted and ready!
 $ vagrant ssh
-Welcome to Ubuntu 12.04.5 LTS (GNU/Linux 3.16.0-4-amd64 x86_64)
+Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.16.0-4-amd64 x86_64)
 
  * Documentation:  https://help.ubuntu.com/
-vagrant@e1c3e52c432c:~$ sudo apt-get update
+vagrant@f6f06a87c923:~$ sudo apt-get update
 ...
 ```
