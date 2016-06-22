@@ -1,4 +1,4 @@
-FROM ubuntu:12.04.5
+FROM ubuntu:14.04.4
 MAINTAINER Yuya.Nishida. <yuya@j96.org>
 
 RUN \
