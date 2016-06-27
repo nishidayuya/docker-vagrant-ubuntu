@@ -26,6 +26,11 @@ RUN \
   # SSH Tweaks
   echo 'UseDNS no' >> /etc/ssh/sshd_config && \
 
+  # for Vagrant OS detection
+  #
+  # https://github.com/mitchellh/vagrant/blob/v1.8.4/plugins/guests/ubuntu/guest.rb
+  apt-get install -y --no-install-recommends lsb-release && \
+
   # Other Docker image fixes
   mkdir -p /var/run/sshd && \
   rm /usr/sbin/policy-rc.d && \
